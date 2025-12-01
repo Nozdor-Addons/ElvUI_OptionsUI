@@ -766,11 +766,27 @@ local function BuildABConfig()
 				type = "range",
 				name = L["Button Size"],
 				desc = L["The size of the action buttons."],
-				min = 5, max = 60, step = 1,
+				min = 5, max = 50, step = 1,
+				disabled = function() return not E.db.actionbar.microbar.enabled end
+			},
+			buttonWidth = {
+				order = 7,
+				type = "range",
+				name = "Ширина кнопок",
+				desc = "Ширина кнопок панели команд. 0 = для исспользования Размера кнопок.",
+				min = 0, max = 50, step = 1,
+				disabled = function() return not E.db.actionbar.microbar.enabled end
+			},
+			buttonHeight = {
+				order = 8,
+				type = "range",
+				name = "Высота кнопок",
+				desc = "Высота кнопок панели команд. 0 = для исспользования Размера кнопок.",
+				min = 0, max = 50, step = 1,
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			buttonSpacing = {
-				order = 7,
+				order = 9,
 				type = "range",
 				name = L["Button Spacing"],
 				desc = L["The spacing between buttons."],
@@ -778,7 +794,7 @@ local function BuildABConfig()
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			buttonsPerRow = {
-				order = 8,
+				order = 10,
 				type = "range",
 				name = L["Buttons Per Row"],
 				desc = L["The amount of buttons to display per row."],
@@ -786,7 +802,7 @@ local function BuildABConfig()
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			alpha = {
-				order = 9,
+				order = 11,
 				type = "range",
 				name = L["Alpha"],
 				isPercent = true,
@@ -795,7 +811,7 @@ local function BuildABConfig()
 				disabled = function() return not E.db.actionbar.microbar.enabled end
 			},
 			visibility = {
-				order = 10,
+				order = 12,
 				type = "input",
 				name = L["Visibility State"],
 				desc = L["This works like a macro, you can run different situations to get the actionbar to show/hide differently.\n Example: '[combat] show;hide'"],
