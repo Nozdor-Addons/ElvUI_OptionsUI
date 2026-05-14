@@ -6,6 +6,7 @@ local Chat = E:GetModule("Chat")
 local Minimap = E:GetModule("Minimap")
 
 local _G = _G
+local GetCVar = GetCVar
 local pairs = pairs
 
 local HideLeftChat = HideLeftChat
@@ -125,8 +126,29 @@ E.Options.args.datatexts = {
 							name = L["Block Combat Hover"],
 							desc = L["Blocks datatext tooltip from showing in combat."]
 						},
-						goldFormat = {
+						system_display = {
 							order = 6,
+							type = "select",
+							name = L["System Display"],
+							desc = L["Select what the System datatext shows on the panel."],
+							values = {
+								["LATENCY"] = L["Latency"],
+								["MEMORY"] = L["Memory"]
+							}
+						},
+						system_tooltip_display = {
+							order = 7,
+							type = "select",
+							name = L["System Tooltip Display"],
+							desc = L["Select what the System datatext tooltip shows by default. Hold Shift to show the opposite list."],
+							hidden = function() return GetCVar("scriptProfile") ~= "1" end,
+							values = {
+								["LATENCY"] = L["Latency"],
+								["MEMORY"] = L["Memory"]
+							}
+						},
+						goldFormat = {
+							order = 8,
 							type = "select",
 							name = L["Gold Format"],
 							desc = L["The display format of the money text that is shown in the gold datatext and its tooltip."],
@@ -140,7 +162,7 @@ E.Options.args.datatexts = {
 							}
 						},
 						goldCoins = {
-							order = 7,
+							order = 9,
 							type = "toggle",
 							name = L["Show Coins"],
 							desc = L["Use coin icons instead of colored text."]
