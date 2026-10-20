@@ -5,6 +5,7 @@
 ## Notes: Options for ElvUI.
 ## RequiredDeps: ElvUI
 ## LoadOnDemand: 1
+## X-Nozdor-DemonHunter: 1
 
 Libraries\Load_Libraries.xml
 Locales\Load_locales.xml
