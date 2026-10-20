@@ -3806,7 +3806,7 @@ E.Options.args.unitframe.args.player = {
 					order = 6,
 					type = "toggle",
 					name = L["Additional Power Text"],
-					hidden = function() return E.myclass ~= "DRUID" end,
+					hidden = function() return E.myclass ~= "DRUID" and E.myclass ~= "DEMONHUNTER" end,
 					disabled = function() return not E.db.unitframe.units.player.classbar.enable end
 				},
 				spacer = {
